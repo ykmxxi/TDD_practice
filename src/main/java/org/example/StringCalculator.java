@@ -1,5 +1,9 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  https://www.youtube.com/watch?v=bIeqAlmNRrA&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC
  * 문자열 덧셈기
@@ -12,15 +16,23 @@ package org.example;
 public class StringCalculator {
 
 	public static int splitAndSum(String input) {
+		int result = 0;
 
-		return 1;
+		if (input == null || input.isBlank()) {
+			return result;
+		} else {
+			String[] values = input.split("[,:]");
+			for (String value : values) {
+				result += Integer.parseInt(value);
+			}
+		}
+
+		return result;
 	}
 
-	public static int sum(String[] values) {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		return 1;
-	}
-
-	public static void main(String[] args) {
+		System.out.println(splitAndSum(br.readLine()));
 	}
 }
