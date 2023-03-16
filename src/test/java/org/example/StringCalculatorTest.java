@@ -75,7 +75,7 @@ class StringCalculatorTest {
 		);
 	}
 
-	@DisplayName("쉼표로만 구분된 숫자들이 주어졌을 때 더한 값을 리턴")
+	@DisplayName("쉼표와 콜론으로 구분된 숫자들이 주어졌을 때 더한 값을 리턴")
 	@ParameterizedTest(name = "[{index}] \"{0}\" 이 입력되면 {1}을 리턴")
 	@MethodSource
 	void givenStringWithCommaAndColon_whenSplitAndSum_thenReturnsSumResult(String input, int expected) {
