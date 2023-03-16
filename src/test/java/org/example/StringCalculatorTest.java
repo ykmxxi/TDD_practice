@@ -106,15 +106,15 @@ class StringCalculatorTest {
 			.isInstanceOf(RuntimeException.class);
 	}
 
-	static Stream<Arguments> givenWrongInput_whenSplitAndSum_thenThrowRuntimeException() {
+	static Stream<String> givenWrongInput_whenSplitAndSum_thenThrowRuntimeException() {
 		return Stream.of(
-			arguments("-1,2:3"),
-			arguments("3:사,5"),
-			arguments("6:-122:8"),
-			arguments("-11,22,33"),
-			arguments("!1:2,3:4,5"),
-			arguments("6:twelve:8"),
-			arguments("6.8")
+			"-1,2:3",
+			"3:사,5",
+			"6:-122:8",
+			"-11,22,33",
+			"!1:2,3:4,5",
+			"6:twelve:8",
+			"6.8"
 		);
 	}
 }
