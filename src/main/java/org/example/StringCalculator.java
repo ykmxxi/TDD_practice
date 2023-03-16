@@ -16,17 +16,18 @@ import java.io.InputStreamReader;
 public class StringCalculator {
 
 	public static int splitAndSum(String input) {
-		int result = 0;
-
 		if (input == null || input.isBlank()) {
-			return result;
-		} else {
-			String[] values = input.split("[,:]");
-			for (String value : values) {
-				result += Integer.parseInt(value);
-			}
+			return 0;
 		}
+		String[] values = input.split("[,:]");
+		return sum(values);
+	}
 
+	private static int sum(String[] values) {
+		int result = 0;
+		for (String value : values) {
+			result += Integer.parseInt(value);
+		}
 		return result;
 	}
 
