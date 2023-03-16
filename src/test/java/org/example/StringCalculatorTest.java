@@ -96,7 +96,7 @@ class StringCalculatorTest {
 	}
 
 	@DisplayName("잘못된 값이 주어졌을 때 RuntimeException 을 던지기")
-	@ParameterizedTest(name = "[{index}] \"{0}\" 이 입력되면 {1}을 리턴")
+	@ParameterizedTest(name = "[{index}] \"{0}\" 이 입력되면 RuntimeException 을 던짐")
 	@MethodSource
 	void givenWrongInput_whenSplitAndSum_thenThrowRuntimeException(String input) {
 		// given
