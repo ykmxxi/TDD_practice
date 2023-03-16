@@ -19,14 +19,21 @@ public class StringCalculator {
 		if (input == null || input.isBlank()) {
 			return 0;
 		}
-		String[] values = input.split("[,:]");
-		return sum(values);
+		return sum(toInts(input.split("[,:]")));
 	}
 
-	private static int sum(String[] values) {
+	private static int[] toInts(String[] values) {
+		int[] numbers = new int[values.length];
+		for (int i = 0; i < values.length; i++) {
+			numbers[i] = Integer.parseInt(values[i]);
+		}
+		return numbers;
+	}
+
+	private static int sum(int[] numbers) {
 		int result = 0;
-		for (String value : values) {
-			result += Integer.parseInt(value);
+		for (int number : numbers) {
+			result += number;
 		}
 		return result;
 	}
