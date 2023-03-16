@@ -3,6 +3,7 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Pattern;
 
 /**
  https://www.youtube.com/watch?v=bIeqAlmNRrA&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC
@@ -33,9 +34,16 @@ public class StringCalculator {
 	private static int[] toInts(String[] values) {
 		int[] numbers = new int[values.length];
 		for (int i = 0; i < values.length; i++) {
-			numbers[i] = Integer.parseInt(values[i]);
+			numbers[i] = toInt(values[i]);
 		}
 		return numbers;
+	}
+
+	private static int toInt(String value) {
+		if (!Pattern.matches("\\d*", value)) {
+			throw new RuntimeException();
+		}
+		return Integer.parseInt(value);
 	}
 
 	private static int sum(int[] numbers) {
