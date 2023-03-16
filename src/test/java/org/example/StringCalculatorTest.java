@@ -94,4 +94,27 @@ class StringCalculatorTest {
 			arguments("1:2,3:4,5", 15)
 		);
 	}
+
+	@DisplayName("잘못된 값이 주어졌을 때 RuntimeException 을 던지기")
+	@ParameterizedTest(name = "[{index}] \"{0}\" 이 입력되면 {1}을 리턴")
+	@MethodSource
+	void givenWrongInput_whenSplitAndSum_thenThrowRuntimeException(String input) {
+		// given
+
+		// when & then
+		assertThatThrownBy(() -> StringCalculator.splitAndSum(input))
+			.isInstanceOf(RuntimeException.class);
+	}
+
+	static Stream<Arguments> givenWrongInput_whenSplitAndSum_thenThrowRuntimeException() {
+		return Stream.of(
+			arguments("-1,2:3"),
+			arguments("3:사,5"),
+			arguments("6:-122:8"),
+			arguments("-11,22,33"),
+			arguments("!1:2,3:4,5"),
+			arguments("6:twelve:8"),
+			arguments("6.8")
+		);
+	}
 }
